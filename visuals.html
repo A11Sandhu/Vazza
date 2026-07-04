@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vazza Visuals</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .hero-pad { padding: 80px 24px 60px; text-align: center; }
+  .visuals-lead { font-size: 14px; letter-spacing: 0.5em; color: var(--muted-2); font-style: italic; margin-bottom: 20px; }
+  .visuals-title { font-size: 52px; letter-spacing: 0.02em; color: var(--ink); font-weight: 500; line-height: 1.15; max-width: 780px; margin: 0 auto; }
+  .visuals-copy { font-size: 17px; line-height: 1.85; color: var(--ink-soft); font-style: italic; max-width: 560px; margin: 0 auto; }
+
+  .section-wrap { padding: 20px 24px 70px; max-width: 1100px; margin: 0 auto; width: 100%; }
+  .section-wrap.tight { padding-top: 0; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .service-card { background: var(--bg-ivory); padding: 38px 28px; text-align: center; }
+  .service-card h3 { font-size: 20px; color: var(--ink); margin: 0 0 10px; font-weight: 500; }
+  .service-card p { font-size: 13px; color: var(--muted-2); font-style: italic; line-height: 1.7; margin: 0; }
+
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .gallery-grid img { width: 100%; height: 320px; object-fit: cover; display: block; border-radius: 1px; }
+  .gallery-extra { display: block; }
+  .load-more-wrap { text-align: center; margin-top: 28px; display: none; }
+
+  .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+  .package-card {
+    border: 1px solid var(--border);
+    padding: 40px 32px;
+    text-align: center;
+    background: rgba(255,255,255,0.3);
+    transition: border-color .3s ease, background .3s ease;
+  }
+  .package-card:hover { border-color: var(--ink); background: rgba(255,255,255,0.5); }
+  .package-card h3 { font-size: 22px; color: var(--ink); margin: 0 0 16px; font-weight: 500; }
+  .package-rule { width: 26px; height: 1px; background: var(--accent-line); margin: 0 auto 20px; }
+  .package-card .details { font-size: 14px; color: var(--muted); line-height: 2.1; }
+  .package-note { text-align: center; margin-top: 32px; font-size: 13px; color: var(--muted-2); font-style: italic; }
+
+  .testimonials-wrap { padding: 0 24px 80px; max-width: 900px; margin: 0 auto; width: 100%; text-align: center; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 36px; }
+  .testimonial blockquote { font-size: 16px; color: var(--ink-soft); font-style: italic; line-height: 1.8; margin: 0 0 14px; }
+  .testimonial cite { font-size: 12px; letter-spacing: 0.1em; color: var(--muted-2); font-style: normal; }
+
+  .testimonials-mobile { display: none; min-height: 170px; }
+  .t-slide { display: none; opacity: 0; transition: opacity .35s ease; }
+  .t-slide.active { display: block; opacity: 1; }
+  .t-dots { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 26px; }
+  .t-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); cursor: pointer; transition: background .3s ease; border: none; padding: 0; }
+  .t-dot.active { background: var(--ink); }
+
+  .cta-block { text-align: center; padding: 0 24px 70px; }
+  .cta-block .cta-title { font-size: 30px; color: var(--ink); margin-bottom: 26px; }
+
+  @media (max-width: 700px) {
+    .visuals-title { font-size: 32px !important; }
+    .hero-pad { padding: 50px 20px 40px !important; }
+    .services-grid { grid-template-columns: 1fr !important; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .gallery-extra:not(.show) { display: none !important; }
+    .load-more-wrap { display: block !important; }
+    .testimonials-grid { display: none !important; }
+    .testimonials-mobile { display: block !important; }
+  }
+  @media (max-width: 420px) {
+    .gallery-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <nav class="nav">
+    <div class="nav-links">
+      <a href="visuals.html" class="current">VISUALS</a>
+      <a href="events.html">EVENTS</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="team.html">OUR TEAM</a>
+    </div>
+  </nav>
+  <div class="divider-top"></div>
+
+  <div class="hero-pad fade-in">
+    <div class="visuals-lead">VAZZA VISUALS</div>
+    <div class="visuals-title">Photography, Capturing Memories</div>
+    <div class="accent-rule"></div>
+    <p class="visuals-copy">Timeless photography for weddings, engagements, and life&rsquo;s most important celebrations.</p>
+  </div>
+
+  <div class="section-wrap tight">
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Wedding Photography</h3>
+        <p>Full-day coverage of your ceremony and celebrations</p>
+      </div>
+      <div class="service-card">
+        <h3>Pre-Wedding, Engagement &amp; Rokha</h3>
+        <p>Intimate portraits and ceremony moments before the big day</p>
+      </div>
+      <div class="service-card">
+        <h3>Event Coverage</h3>
+        <p>Receptions, birthdays &amp; celebrations of every kind</p>
+      </div>
+      <div class="service-card">
+        <h3>Business &amp; Professional</h3>
+        <p>Portraits and branding photography for business ventures</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrap">
+    <div style="text-align:center; margin-bottom:36px;"><div class="section-label">PORTFOLIO</div></div>
+    <div class="gallery-grid" id="gallery">
+      <img src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img class="gallery-extra" src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img class="gallery-extra" src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img class="gallery-extra" src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img class="gallery-extra" src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img class="gallery-extra" src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img class="gallery-extra" src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img class="gallery-extra" src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+      <img class="gallery-extra" src="assets/images/placeholder.png" alt="Vazza Visuals portfolio photo">
+    </div>
+    <div class="load-more-wrap">
+      <button id="load-more-btn" class="btn-outline">LOAD MORE</button>
+    </div>
+  </div>
+
+  <div class="section-wrap">
+    <div style="text-align:center; margin-bottom:36px;"><div class="section-label">PACKAGES</div></div>
+    <div class="packages-grid">
+      <div class="package-card">
+        <h3>Essential</h3>
+        <div class="package-rule"></div>
+        <div class="details">6 Hours Coverage<br>1 Photographer<br>Edited Digital Gallery</div>
+      </div>
+      <div class="package-card">
+        <h3>Signature</h3>
+        <div class="package-rule"></div>
+        <div class="details">10 Hours Coverage<br>2 Photographers<br>Edited Gallery + Same-Day Preview</div>
+      </div>
+      <div class="package-card">
+        <h3>Luxury</h3>
+        <div class="package-rule"></div>
+        <div class="details">Full-Day Coverage<br>2 Photographers<br>Premium Album &amp; Fine Art Prints</div>
+      </div>
+    </div>
+    <div class="package-note">All packages tailored to your celebration &mdash; inquire for full pricing.</div>
+  </div>
+
+  <div class="testimonials-wrap">
+    <div class="section-label" style="margin-bottom:36px;">KIND WORDS</div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial"><blockquote>&ldquo;Bro, these photos came out crazy. You caught all the little moments we didn&rsquo;t even notice that day.&rdquo;</blockquote><cite>&mdash; TARAN &amp; ARMAAN</cite></div>
+      <div class="testimonial"><blockquote>&ldquo;We didn&rsquo;t even realize half these moments happened until we saw the photos. The whole gallery brought the day back.&rdquo;</blockquote><cite>&mdash; HARJOT &amp; AMAN</cite></div>
+      <div class="testimonial"><blockquote>&ldquo;Everyone in our family keeps asking who took the photos. They came out so good.&rdquo;</blockquote><cite>&mdash; TANIA &amp; PRABH</cite></div>
+      <div class="testimonial"><blockquote>&ldquo;I had a clear vision for how I wanted everything to look, and you brought it to life exactly the way I imagined. The photos felt so true to us.&rdquo;</blockquote><cite>&mdash; ISHA &amp; SUKHMEET</cite></div>
+      <div class="testimonial"><blockquote>&ldquo;Aman was so kind and patient with us throughout the whole process. He made everything feel comfortable and easy, and we&rsquo;re so thankful to the Vazza team for capturing our day so beautifully.&rdquo;</blockquote><cite>&mdash; DILPREET &amp; HARRY</cite></div>
+      <div class="testimonial"><blockquote>&ldquo;Our Rokha pictures turned out so nice. Aman made the whole process easy, and we&rsquo;re definitely rebooking with Vazza Visuals for our next event.&rdquo;</blockquote><cite>&mdash; SIMRAN &amp; ARJUN</cite></div>
+    </div>
+
+    <div class="testimonials-mobile" id="t-mobile">
+      <div class="t-slide active"><blockquote style="font-size:17px; color:var(--ink-soft); font-style:italic; line-height:1.8; margin:0 0 16px; min-height:110px;">&ldquo;Bro, these photos came out crazy. You caught all the little moments we didn&rsquo;t even notice that day.&rdquo;</blockquote><cite style="font-size:12px; letter-spacing:0.1em; color:var(--muted-2); font-style:normal;">&mdash; TARAN &amp; ARMAAN</cite></div>
+      <div class="t-slide"><blockquote style="font-size:17px; color:var(--ink-soft); font-style:italic; line-height:1.8; margin:0 0 16px; min-height:110px;">&ldquo;We didn&rsquo;t even realize half these moments happened until we saw the photos. The whole gallery brought the day back.&rdquo;</blockquote><cite style="font-size:12px; letter-spacing:0.1em; color:var(--muted-2); font-style:normal;">&mdash; HARJOT &amp; AMAN</cite></div>
+      <div class="t-slide"><blockquote style="font-size:17px; color:var(--ink-soft); font-style:italic; line-height:1.8; margin:0 0 16px; min-height:110px;">&ldquo;Everyone in our family keeps asking who took the photos. They came out so good.&rdquo;</blockquote><cite style="font-size:12px; letter-spacing:0.1em; color:var(--muted-2); font-style:normal;">&mdash; TANIA &amp; PRABH</cite></div>
+      <div class="t-slide"><blockquote style="font-size:17px; color:var(--ink-soft); font-style:italic; line-height:1.8; margin:0 0 16px; min-height:110px;">&ldquo;I had a clear vision for how I wanted everything to look, and you brought it to life exactly the way I imagined. The photos felt so true to us.&rdquo;</blockquote><cite style="font-size:12px; letter-spacing:0.1em; color:var(--muted-2); font-style:normal;">&mdash; ISHA &amp; SUKHMEET</cite></div>
+      <div class="t-slide"><blockquote style="font-size:17px; color:var(--ink-soft); font-style:italic; line-height:1.8; margin:0 0 16px; min-height:110px;">&ldquo;Aman was so kind and patient with us throughout the whole process. He made everything feel comfortable and easy, and we&rsquo;re so thankful to the Vazza team for capturing our day so beautifully.&rdquo;</blockquote><cite style="font-size:12px; letter-spacing:0.1em; color:var(--muted-2); font-style:normal;">&mdash; DILPREET &amp; HARRY</cite></div>
+      <div class="t-slide"><blockquote style="font-size:17px; color:var(--ink-soft); font-style:italic; line-height:1.8; margin:0 0 16px; min-height:110px;">&ldquo;Our Rokha pictures turned out so nice. Aman made the whole process easy, and we&rsquo;re definitely rebooking with Vazza Visuals for our next event.&rdquo;</blockquote><cite style="font-size:12px; letter-spacing:0.1em; color:var(--muted-2); font-style:normal;">&mdash; SIMRAN &amp; ARJUN</cite></div>
+      <div class="t-dots" id="t-dots"></div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <div class="cta-title">Let&rsquo;s create something timeless.</div>
+    <a href="contact.html" class="btn-outline">INQUIRE NOW</a>
+  </div>
+
+  <div class="divider-bottom"></div>
+  <div class="site-footer">
+    Based in Vancouver, BC — Serving Punjabi, South Asian &amp; Luxury Weddings
+    <div class="copyright">&copy; 2026 VAZZA</div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('load-more-btn').addEventListener('click', function () {
+    var extras = document.querySelectorAll('.gallery-extra');
+    var expanded = extras[0].classList.contains('show');
+    extras.forEach(function (el) { el.classList.toggle('show', !expanded); });
+    this.textContent = expanded ? 'LOAD MORE' : 'SHOW LESS';
+  });
+
+  (function () {
+    var slides = document.querySelectorAll('#t-mobile .t-slide');
+    var dotsWrap = document.getElementById('t-dots');
+    var active = 0;
+    slides.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.className = 't-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = dotsWrap.querySelectorAll('.t-dot');
+    var timer;
+    function goTo(i) {
+      slides[active].classList.remove('active');
+      dots[active].classList.remove('active');
+      active = i;
+      slides[active].classList.add('active');
+      dots[active].classList.add('active');
+    }
+    function next() { goTo((active + 1) % slides.length); }
+    function startTimer() { timer = setInterval(next, 4500); }
+    function resetTimer() { clearInterval(timer); startTimer(); }
+    dots.forEach(function (d) { d.addEventListener('click', resetTimer); });
+    startTimer();
+  })();
+</script>
+
+</body>
+</html>
